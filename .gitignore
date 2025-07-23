@@ -1,7 +1,4 @@
-.env *
-.myenv *
-.vscode *
-.idea *
-Envinotas/myenv *
-TextoAudio/.idea *
-TextoAudio/.env *
+.env
+.myenv
+.vscode
+.idea
