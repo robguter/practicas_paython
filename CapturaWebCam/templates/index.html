@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/estyle.css">
+    <title>Capturador WebCam</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Captura WebCam</h1>
+        <form action="/capture" method="post">
+            <label for="camera_index">Selecciona una Cámara</label>
+            <select name="camera_index" id="camera_index" required>
+                {% for camera in cameras %}
+                    <option value="{{ camera }}">Cámara {{ camera }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn" type="submit">Capture Image</button>
+        </form>
+        {% if image_path %}
+        <div id="image-description" class="container">
+            <div id="image-container">
+                <img src="{{ image_path }}" alt="Captured Image" id="capture-image">
+            </div>
+            <div id="result" class="result">
+                <p>{{ description }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="error" id="error">
+                <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
